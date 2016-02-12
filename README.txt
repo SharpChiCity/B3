@@ -1,7 +1,7 @@
 ---ABOUT---
 BingBucksBot (B3) is a simple python script that asks for your email and password in order to search Bing.com using Chrome and gather points for the rewards program. At no point will your personal data be sent back to the creator, nor anywhere else.
 
-B3 was built using Python 3.4 and Selenium. It was compiled using PyToExe. The source code can be located at https://github.com/MonteTribal under the name 'B3' (If it is not taken down). 
+B3 was built using Python 3.4 and Selenium. It Will* compiled using cx_Freeze at some point. The source code can be located at https://github.com/MonteTribal under the name 'B3' (If it is not taken down). 
 
 It was tested using Google Chrome (Version 48.0.2564.97 m)
 

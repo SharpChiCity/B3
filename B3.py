@@ -13,8 +13,8 @@ def doASearchInNewTab(dr, url):
 	dr.switch_to_window(dr.window_handles[-1])
 	#Load a page
 	dr.get(url)
-	#wait
-	time.sleep(1)
+	#wait a short amount of time between searches
+	time.sleep(random.randint(1,30))
 	#close the tab
 	dr.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 'w')
 	#focus on first window
@@ -31,7 +31,10 @@ def main():
 	words = [x.strip('\n') for x in words]
 	urls = []
 	for i in range(0,NUM_SEARCHES):
-		addr = base_url + random.choice(words)
+		# vary search pattern
+		search_word_length = random.randint(1,6)
+		
+		addr = base_url + ' '.join(random.sample(words, search_word_length))
 		urls.append(addr)
 
 	#get log in information
@@ -47,9 +50,12 @@ def main():
 
 	email_loc = dr.find_element_by_id("i0116")
 	password_loc = dr.find_element_by_id("i0118")
-	# Enter login details and submit
+	# Enter login details and submit with delays to look less like a bot
+	time.sleep(random.randint(1,5))
 	email_loc.send_keys(email_data)
+	time.sleep(random.randint(1,10))
 	password_loc.send_keys(password_data)
+	time.sleep(random.randint(1,3))
 	password_loc.send_keys(Keys.ENTER)
 	time.sleep(2)
 

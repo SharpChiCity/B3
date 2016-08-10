@@ -24,7 +24,6 @@ def doASearchInNewTab(dr, url):
 
 def instantiate_session(mobile_flag=0):
     if mobile_flag == 1:
-        browser_search(mobile_flag=1)
         mobile_emulation = {
             "deviceMetrics": { "width": 360, "height": 640, "pixelRatio": 3.0 },
             "userAgent": "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19" }
@@ -60,7 +59,7 @@ def login_with_credentials(dr):
 
 def browser_search(dr, mobile_flag=0):
 
-    NUM_SEARCHES = 1
+    NUM_SEARCHES = 33
 
     #construct search urls
     base_url = "http://www.bing.com/search?q="
@@ -84,7 +83,6 @@ def browser_search(dr, mobile_flag=0):
     #leave
     dr.find_element_by_tag_name('body').send_keys("Thank You for Using Bing Bucks Bot ;)")
     time.sleep(5)
-    dr.quit()
 
 def dashboard_links(dr):
     #get log in information
@@ -105,10 +103,12 @@ if __name__ == '__main__':
     dr = instantiate_session(0)
     browser_search(dr)
     dashboard_links(dr)
+    dr.quit()
     time.sleep(random.randint(5,10))
     
 
     dr = instantiate_session(1)
     browser_search(dr)
+    dr.quit()
     time.sleep(random.randint(1,60))
 

@@ -65,6 +65,7 @@ def browser_search(dr):
 
     #construct search urls
     base_url = "https://www.bing.com/search?q="
+
     with open("Data\\words.txt") as f:
         words = f.readlines()
     words = [x.strip('\n') for x in words]
